@@ -1,8 +1,17 @@
-# React + Vite
+first created vite@latest react app
+second installed the tailwindcss for the vite app
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+then added all the required dependencies. They are:
+"@reduxjs/toolkit": "^2.5.0",
+    "@tailwindcss/line-clamp": "^0.4.4",
+    "axios" 
+    "chart.js"
+    "react-chartjs-2" 
+    "react-hot-toast"
+    "react-icons"
+    "react-redux"
+    "react-router-dom"
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    and some dev dependencies like 
+    "daisyui"
+    "postcss"
