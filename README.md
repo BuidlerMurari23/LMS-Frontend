@@ -2,8 +2,8 @@ first created vite@latest react app
 second installed the tailwindcss for the vite app
 
 then added all the required dependencies. They are:
-"@reduxjs/toolkit": "^2.5.0",
-    "@tailwindcss/line-clamp": "^0.4.4",
+    "@reduxjs/toolkit"
+    "@tailwindcss/line-clamp"
     "axios" 
     "chart.js"
     "react-chartjs-2" 

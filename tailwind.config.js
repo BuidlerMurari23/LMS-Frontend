@@ -8,8 +8,8 @@ export default {
     extend: {},
   },
   plugins: [
-    require('daisyui'),
-    require('@tailwindcss/line-clamp'),
+    require("daisyui"),
+    require("@tailwindcss/line-clamp")
   ],
 }
 
