@@ -3,6 +3,7 @@ import { AiFillCloseCircle } from 'react-icons/ai';
 import { Link, useNavigate } from 'react-router-dom';
 import Footer from '../Components/Footer';
 import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../Redux/Slices/authSlice.js';
 
 
 function HomeLayout({ children }){
@@ -25,6 +26,14 @@ function HomeLayout({ children }){
         element[0].checked = false;
         const drawerSide = document.getElementsByClassName('drawer-side');
         drawerSide[0].style.width = 0;
+    }
+
+    async function handleLogout(e){
+        e.preventDefault();
+        
+        const response = await dispatch(logout());
+        if(response?.payload?.success);
+        navigate("/");
     }
 
     return(
@@ -92,13 +101,13 @@ function HomeLayout({ children }){
                             {
                                 isLoggedIn && (
 
-                                    <li className='mt-5 bottom-4 w-[90%] '>
+                                    <li className='absolute bottom-4 w-[90%] '>
                                     <div className='w-full flex items-center justify-center'>
-                                        <button className='btn-primary px-4 py-1 font-semibold rounded-md w-full'>
+                                        <button className='btn-primary px-4 py-1 font-semibold rounded-md w-full bg-purple-600'>
                                             <Link to="/user/profile" >Profile</Link>
                                         </button>
-                                        <button className='btn-secondary px-4 py-1 font-semibold rounded-md w-full'>
-                                            <Link to="/logout" >Logout</Link>
+                                        <button className='btn-secondary px-4 py-1 font-semibold rounded-md w-full bg-pink-500'>
+                                            <Link onClick={handleLogout} >Logout</Link>
                                         </button>
                                     </div>
                                     </li>

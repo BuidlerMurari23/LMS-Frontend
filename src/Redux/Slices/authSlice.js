@@ -5,8 +5,8 @@ import axiosInstance from "../../Helpers/axiosInstance.js"
 
 const initialState = {
     isLoggedIn: localStorage.getItem('isLoggedIn') || false,
-    role: localStorage.getItem('role') || "",
     data: localStorage.getItem('data') || {},
+    role: localStorage.getItem('role') || "",
 };
 
 export const createAccount = createAsyncThunk("/auth/signup", async (data) => {
@@ -24,7 +24,9 @@ export const createAccount = createAsyncThunk("/auth/signup", async (data) => {
     } catch (e) {
         toast.error(e?.response?.data?.message);
     }
-})
+});
+
+
 export const login = createAsyncThunk("/auth/login", async (data) => {
     try {
         const res = axiosInstance.post("/user/login", data);
@@ -40,14 +42,31 @@ export const login = createAsyncThunk("/auth/login", async (data) => {
     } catch (e) {
         toast.error(e?.response?.data?.message);
     }
+});
+
+export const logout = createAsyncThunk("/auth/logout", async () => {
+  try {
+    const res = axiosInstance.get("/user/logout");
+    toast.promise(res, {
+        loading: "Wait!! logout in progress",
+        success: (data) => {
+            return data?.data?.message;
+        },
+        error: "Failed to logout !!"
+    })
+  } catch (e) {
+    toast.error(e?.response?.data?.message);
+  }  
 })
+
 
 const authSlice = createSlice({
     name: "auth",
     initialState,
     reducers: {},
     extraReducers: (builder) => {[
-        builder.addCase(login.fulfilled, (state, action) => {
+        builder
+        .addCase(login.fulfilled, (state, action) => {
             localStorage.setItem("data", JSON.stringify(action?.payload?.user));
             localStorage.setItem("isLoggedIn", true);
             localStorage.setItem("role", action?.payload?.user?.role);
@@ -55,6 +74,12 @@ const authSlice = createSlice({
             state.isLoggedIn = true;
             state.data = action?.payload?.user;
             state.role = action?.payload?.user?.role;
+        })
+        .addCase(logout.fulfilled, (state) => {
+            localStorage.clear();
+            state.isLoggedIn = false;
+            state.data = {};
+            state.role = ""
         })
     ]}
 });
