@@ -15,7 +15,7 @@ function NotFound(){
             </div>
             <button className="mt-5">
                 <a className="relative inline-block text-sm font-medium text-[#FF6A3D]  ">
-                    <span onClick={() => navigate(-1)} className="relative block px-8 py-3 bg-[#1A2238] border border-current ">Go Back</span>
+                    <span onClick={() => navigate(-1)} className="relative block px-8 py-3 bg-[#1A2238] border border-current rounded-xl">Go Back</span>
                 </a>
             </button>
         </div>
