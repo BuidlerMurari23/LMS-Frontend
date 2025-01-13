@@ -10,6 +10,7 @@ import Login from './Pages/Login.jsx'
 import CourseList from './Pages/Course/CourseList.jsx'
 import Contact from './Pages/Contact.jsx'
 import Denied from './Pages/Denied.jsx'
+import CourseDescription from './Pages/Course/CourseDescription.jsx'
 
 function App() {
   
@@ -22,6 +23,7 @@ function App() {
       <Route path='/contact' element={<Contact />} />
       <Route path='/denied' element={<Denied />} />
       <Route path='/courses' element={<CourseList />} />
+      <Route path='/courses/description' element={<CourseDescription />} />
       <Route path='/signup' element={<Signup />} />
       <Route path='/login' element={<Login />} />
       <Route path='*' element={<NotFound />} />
