@@ -26,10 +26,10 @@ return(
                     <p>{userData?.subscription?.status ==="active" ? "Active" : "Inactive"} </p>
                 </div>
                 <div className="flex items-center justify-between gap-2">
-                    <Link to="/changePassword" className="w-1/2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-lg font-semibold py-2 cursor-pointer text-center">
+                    <Link to="/user/changePassword" className="w-1/2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-lg font-semibold py-2 cursor-pointer text-center">
                         <button>Change Password</button>
                     </Link>
-                    <Link to="/editProfile" className="w-1/2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-lg font-semibold py-2 cursor-pointer text-center">
+                    <Link to="/user/editProfile" className="w-1/2 bg-yellow-600 hover:bg-yellow-500 transition-all ease-in-out duration-300 rounded-lg font-semibold py-2 cursor-pointer text-center">
                         <button>Edit Profile</button>
                     </Link>
                 </div>
